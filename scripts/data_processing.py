@@ -26,8 +26,7 @@ def tokenize_data(data, tokenizer, max_length=128):
             return_tensors='pt'
         )
     )
-
-    # Convert PyTorch tensors to lists
+    
     data["input_ids"] = tokens.apply(lambda x: x["input_ids"].squeeze().tolist())
     data["attention_mask"] = tokens.apply(lambda x: x["attention_mask"].squeeze().tolist())
 
